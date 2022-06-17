@@ -1,7 +1,7 @@
 {
-  "name": "cookbook",
+  "name": "sendmoney",
   "version": "1.0.0",
-  "description": "A simple recipe app using typescript and sequelize",
+  "description": "A simple sendMoney app using typescript and sequelize",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest --coverage",
@@ -11,8 +11,8 @@
   "keywords": [
     "sequelize",
     "typescript",
-    "food",
-    "recipes",
+    "account",
+    "wallet",
     "cache",
     "speed",
     "microdiff"

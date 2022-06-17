@@ -1,15 +1,5 @@
-import Tag from './Tag'
-import Recipe from './Recipe'
-import Ingredient from './Ingredient'
-import Review from './Review'
-import RecipeTag from './RecipeTag'
-import RecipeIngredient from './RecipeIngredient'
+import User from './User'
 
 export {
-  Tag,
-  Recipe,
-  Ingredient,
-  Review,
-  RecipeTag,
-  RecipeIngredient
+  User
 }

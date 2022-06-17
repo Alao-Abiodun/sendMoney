@@ -1,27 +1,25 @@
 import { DataTypes, Model, ModelStatic, Optional } from 'sequelize'
 import sequelizeConnection from '../config'
 
-interface IngredientAttributes {
+interface UserAttributes {
     id: number;
     name: string;
-    slug: string;
-    description?: string;
-    foodGroup?: string;
+    email: string;
+    password: string;
     createdAt?: Date;
     updatedAt?: Date;
     deletedAt?: Date;
 }
 
-export interface IngredientInput extends Optional<IngredientAttributes, 'id' | 'slug'> {}
+export interface UserInput extends Optional<UserAttributes, 'id' | 'name'> {}
 
-export interface IngredientOuput extends Required<IngredientAttributes> {}
+export interface UserOutput extends Required<UserAttributes> {}
 
-class Ingredient extends Model<IngredientAttributes, IngredientInput> implements IngredientAttributes {
+class User extends Model<UserAttributes, UserInput> implements UserAttributes {
     public id!: number
     public name!: string
-    public slug!: string
-    public description!: string
-    public foodGroup!: string
+    public email!: string
+    public password!: string
     
     // timestamps!
     public readonly createdAt!: Date;
@@ -29,7 +27,7 @@ class Ingredient extends Model<IngredientAttributes, IngredientInput> implements
     public readonly deletedAt!: Date;
 }
 
-Ingredient.init({
+User.init({
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -39,20 +37,17 @@ Ingredient.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    slug: {
+    email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
-    description: {
-        type: DataTypes.TEXT
-    },
-    foodGroup: {
-        type: DataTypes.STRING
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
   sequelize: sequelizeConnection,
   paranoid: true
 })
 
-export default Ingredient
+export default User
